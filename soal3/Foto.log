@@ -1,0 +1,15 @@
+--2021-03-25 14:34:35--  https://loremflickr.com/320/240/kitten
+Resolving loremflickr.com (loremflickr.com)... 104.21.47.37, 172.67.170.91, 2606:4700:3037::ac43:aa5b, ...
+Connecting to loremflickr.com (loremflickr.com)|104.21.47.37|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: /cache/resized/65535_50548809727_2bc4206b57_n_320_240_nofilter.jpg [following]
+--2021-03-25 14:34:36--  https://loremflickr.com/cache/resized/65535_50548809727_2bc4206b57_n_320_240_nofilter.jpg
+Reusing existing connection to loremflickr.com:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 12648 (12K) [image/jpeg]
+Saving to: ‘Kumpulan_1.jpg’
+
+     0K .......... ..                                         100% 3.92M=0.003s
+
+2021-03-25 14:34:37 (3.92 MB/s) - ‘Kumpulan_1.jpg’ saved [12648/12648]
+
