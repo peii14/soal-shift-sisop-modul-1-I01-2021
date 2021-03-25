@@ -6,12 +6,13 @@ do
 	filetemp=$(awk '/Location:/ {print $2}' Foto.log)
 	IFS='/' read -ra ADDR <<< "$filetemp"
 	filetemp=${ADDR[3]}
-
+	
 	cek=$(awk -v Koleksi="$filetemp" '
-	BEGIN{counter=0}
-	{if( $0~Koleksi )count++}
-       	END{print count}')
-	#echo $cek
+	BEGIN{count=0}
+	{if( $0~Foto )count++}
+       	END{print count}'Foto.log)
+	echo $cek
+
 
 	if [[ $cek>0 ]]
 	then
@@ -19,6 +20,6 @@ do
 		lastF=$(ls | sort -V | tail -n 1)
 		lastFname=${lastF%.*}
 		finaliter=${lastF:10}
-	#	rm -f "Koleksi_$iter.jpg"
+		rm -f "Kumpulan_$iter.jpg"
 	fi
 done
