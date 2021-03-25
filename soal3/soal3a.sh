@@ -10,7 +10,7 @@ do
 	cek=$(awk -v Koleksi="$filetemp" '
 	BEGIN{count=0}
 	{if( $0~Foto )count++}
-       	END{print count}'Foto.log)
+       	END{print count}'Foto.log )
 	echo $cek
 
 
