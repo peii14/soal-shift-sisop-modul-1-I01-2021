@@ -1,15 +1,15 @@
---2021-03-25 15:44:40--  https://loremflickr.com/320/240/kitten
-Resolving loremflickr.com (loremflickr.com)... 104.21.47.37, 172.67.170.91, 2606:4700:3037::ac43:aa5b, ...
-Connecting to loremflickr.com (loremflickr.com)|104.21.47.37|:443... connected.
+--2021-03-25 21:29:14--  https://loremflickr.com/320/240/kitten
+Resolving loremflickr.com (loremflickr.com)... 172.67.170.91, 104.21.47.37, 2606:4700:3037::ac43:aa5b, ...
+Connecting to loremflickr.com (loremflickr.com)|172.67.170.91|:443... connected.
 HTTP request sent, awaiting response... 302 Found
-Location: /cache/resized/65535_50230604102_cbdb4b2d44_320_240_nofilter.jpg [following]
---2021-03-25 15:44:41--  https://loremflickr.com/cache/resized/65535_50230604102_cbdb4b2d44_320_240_nofilter.jpg
+Location: /cache/resized/65535_50745657987_4c85192fa9_n_320_240_nofilter.jpg [following]
+--2021-03-25 21:29:15--  https://loremflickr.com/cache/resized/65535_50745657987_4c85192fa9_n_320_240_nofilter.jpg
 Reusing existing connection to loremflickr.com:443.
 HTTP request sent, awaiting response... 200 OK
-Length: 12540 (12K) [image/jpeg]
+Length: 21776 (21K) [image/jpeg]
 Saving to: ‘Kumpulan_23.jpg’
 
-     0K .......... ..                                         100% 4.17M=0.003s
+     0K .......... .......... .                               100%  657K=0.03s
 
-2021-03-25 15:44:42 (4.17 MB/s) - ‘Kumpulan_23.jpg’ saved [12540/12540]
+2021-03-25 21:29:15 (657 KB/s) - ‘Kumpulan_23.jpg’ saved [21776/21776]
 
