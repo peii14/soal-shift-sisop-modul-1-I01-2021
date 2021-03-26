@@ -45,6 +45,7 @@ Every year, TokoShiSop holds a meeting that discusses how sales results and futu
 
 Notes :
 -Use bash, AWK, and supporting commands.
+
 -The script at point (e) should be named  ‘soal2_generate_laporan_ihir_shisop.sh’.
 
 3. Kuuhaku is a person who really likes to collect digital photos, but Kuuhaku is also a lazy person so he doesn't want to bother looking for photos, besides that he is also shy, so he doesn't want anyone to see his collection, unfortunately, he has a friend named Steven who made being nosy his primary responsibility. Kuuhaku then had an idea, a way so that Steven won't be able to see his collection. To make his life easier, he is asking for your help. The idea is:
@@ -61,6 +62,7 @@ Notes :
 
 Note:
 -Use bash, AWK, and other commands
+
 -Write all the cron used in file cron3[b/e].tab respectively
 
 
