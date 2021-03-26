@@ -1,1 +1,11 @@
 The last transaction with the largest 9040 with a percentage of 100.00%.
+
+The list of customer name in Albuqerque in 2017 includes:
+Benjamin Farhat
+Michelle Lonsdale
+Susan Vittorini
+David Wiener
+
+The type of customer segment with the least sales is Home Office with 1783 transaction.
+
+The region wich has the least total profit is Central with total profit 39706
