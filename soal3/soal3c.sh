@@ -1,6 +1,5 @@
 #!bin/bash
-
-today=$(date +%m-%d-%Y)
+today=$(date '+%d-%m-%y')
 day=$(date +"%--j")
 
 echo $today
