@@ -7,19 +7,16 @@ do
 	IFS='/' read -ra ADDR <<< "$filetemp"
 	filetemp=${ADDR[3]}
 	
-	cek=$(awk -v Koleksi="$filetemp" '
+	check=$(awk -v foto="$filetemp" '
 	BEGIN{count=0}
-	{if( $0~Foto )count++}
-       	END{print count}'Foto.log)
-	echo $cek
+	{if( $0~foto )count++}
+       	END{print count}' Foto.log )
+	echo $check
 
 
-	if [[ $cek>0 ]]
+	if [[ $check>0 ]]
 	then
 		echo "DELETE DUPLICATE"
-		lastF=$(ls | sort -V | tail -n 1)
-		lastFname=${lastF%.*}
-		finaliter=${lastF:10}
-		rm -f "Kumpulan_$iter.jpg"
+		rm -f "benerin_$iter.jpg"
 	fi
 done
