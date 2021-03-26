@@ -11,7 +11,7 @@ BEGIN{maxPP=0}
 END{
 	printf("The last transaction with the largest %d with a percentage of %.2f%%.\n\n",maxID,maxPP)
 }
-' /home/ascarya/sisop/soal-shift-sisop-modul-1-I01-2021/soal2/Laporan-TokoShiSop.tsv > /home/ascarya/sisop/soal-shift-sisop-modul-1-I01-2021/soal2/hasil.txt
+' /home/ascarya/Downloads/Laporan-TokoShiSop.tsv > /home/ascarya/sisop/soal-shift-sisop-modul-1-I01-2021/soal2/hasil.txt
 
 #B
 awk -F "\t" '
@@ -25,7 +25,7 @@ END{
 	}
 	printf("\n")
 }
-' /home/ascarya/sisop/soal-shift-sisop-modul-1-I01-2021/soal2/Laporan-TokoShiSop.tsv >> /home/ascarya/sisop/soal-shift-sisop-modul-1-I01-2021/soal2/hasil.txt
+' /home/ascarya/Downloads/Laporan-TokoShiSop.tsv >> /home/ascarya/sisop/soal-shift-sisop-modul-1-I01-2021/soal2/hasil.txt
 
 
 #C
@@ -42,7 +42,7 @@ END{
         }
 	printf("The type of customer segment with the least sales is %s with %d transaction.\n\n",segmentName,minTransaction)
 }
-' /home/ascarya/sisop/soal-shift-sisop-modul-1-I01-2021/soal2/Laporan-TokoShiSop.tsv >> /home/ascarya/sisop/soal-shift-sisop-modul-1-I01-2021/soal2/hasil.txt
+' /home/ascarya/Downloads/Laporan-TokoShiSop.tsv >> /home/ascarya/sisop/soal-shift-sisop-modul-1-I01-2021/soal2/hasil.txt
 
 
 #d
@@ -61,4 +61,4 @@ END{
 }
 printf("The region wich has the least total profit is %s with total profit %d\n",regionName,minProfit)
 }
-' /home/ascarya/sisop/soal-shift-sisop-modul-1-I01-2021/soal2/Laporan-TokoShiSop.tsv >> /home/ascarya/sisop/soal-shift-sisop-modul-1-I01-2021/soal2/hasil.txt
+' /home/ascarya/Downloads/Laporan-TokoShiSop.tsv >> /home/ascarya/sisop/soal-shift-sisop-modul-1-I01-2021/soal2/hasil.txt
