@@ -13,6 +13,7 @@ After all the necessary information has been prepared, now is the time for Ryuji
 (e) All information obtained in point c is written into the user_statistic.csv file with the header Username, INFO, ERROR sorted by username in ascending order.
 
 Note:
+
 -AWK is not allowed
 
 2. Steven and Manis founded a startup called “TokoShiSop”, While you and Clemong are the first employees of TokoShiShop. After three years of work, Clemong was appointed to be TokoShiSop’s sales manager, while you became the head of the warehouse who supervised entry and exit of goods.
@@ -44,6 +45,7 @@ Every year, TokoShiSop holds a meeting that discusses how sales results and futu
 
 
 Notes :
+
 -Use bash, AWK, and supporting commands.
 
 -The script at point (e) should be named  ‘soal2_generate_laporan_ihir_shisop.sh’.
@@ -61,6 +63,7 @@ Notes :
 (e) Because kuuhaku only met Steven during college, which is every day except Saturday and Sunday, from 7 am to 6 pm, he asks you to zip the collection during college, apart from the time mentioned, he wants the collection unzipped. and no other zip files exist.
 
 Note:
+
 -Use bash, AWK, and other commands
 
 -Write all the cron used in file cron3[b/e].tab respectively
