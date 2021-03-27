@@ -1,5 +1,6 @@
 # soal-shift-sisop-modul-1-I01-2021
 1. Ryujin has just been accepted as an IT support at Bukapedia. He was given the task of making daily reports for the company's internal 		  application, ticky. There are 2 reports that he has to make, namely the report on the list of most error message ratings made by Ticky and user usage reports on the Ticky application. In order to make this report, Ryujin had to do the following:
+
 (a) Collects information from application logs contained in the syslog.log file. The information required includes: log type (ERROR / INFO), log messages, and the username on each log line. Since Ryujin finds it difficult to check one line at a time manually, he uses regex to make his job easier. Help Ryujin create the regex.
 
 (b) Then, Ryujin must display all error messages that appear along with the number of occurrences.
@@ -12,6 +13,7 @@ After all the necessary information has been prepared, now is the time for Ryuji
 (e) All information obtained in point c is written into the user_statistic.csv file with the header Username, INFO, ERROR sorted by username in ascending order.
 
 Note:
+
 -AWK is not allowed
 
 2. Steven and Manis founded a startup called “TokoShiSop”, While you and Clemong are the first employees of TokoShiShop. After three years of work, Clemong was appointed to be TokoShiSop’s sales manager, while you became the head of the warehouse who supervised entry and exit of goods.
@@ -43,7 +45,9 @@ Every year, TokoShiSop holds a meeting that discusses how sales results and futu
 
 
 Notes :
+
 -Use bash, AWK, and supporting commands.
+
 -The script at point (e) should be named  ‘soal2_generate_laporan_ihir_shisop.sh’.
 
 3. Kuuhaku is a person who really likes to collect digital photos, but Kuuhaku is also a lazy person so he doesn't want to bother looking for photos, besides that he is also shy, so he doesn't want anyone to see his collection, unfortunately, he has a friend named Steven who made being nosy his primary responsibility. Kuuhaku then had an idea, a way so that Steven won't be able to see his collection. To make his life easier, he is asking for your help. The idea is:
@@ -59,7 +63,9 @@ Notes :
 (e) Because kuuhaku only met Steven during college, which is every day except Saturday and Sunday, from 7 am to 6 pm, he asks you to zip the collection during college, apart from the time mentioned, he wants the collection unzipped. and no other zip files exist.
 
 Note:
+
 -Use bash, AWK, and other commands
+
 -Write all the cron used in file cron3[b/e].tab respectively
 
 
