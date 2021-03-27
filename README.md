@@ -5,7 +5,7 @@
 
 (b) Then, Ryujin must display all error messages that appear along with the number of occurrences.
 
-		error_counter=`grep -E -o 'ERROR.*' /home/damdum/syslog.log | cut -f2- -d\ | cut -f1 -d"(" | sort | uniq -c | sort -n -r`				#ngambil dari ERROR ke belakang | ngambil huruf| ngilangin uname| ngrutin yg udah di cut | ngitung kata 					ulang yg udah diurutin| ngurutin berdasarkan angka dari gede | setelah error ke belakang|   
+	error_counter=`grep -E -o 'ERROR.*' /home/damdum/syslog.log | cut -f2- -d\ | cut -f1 -d"(" | sort | uniq -c | sort -n -r`							#ngambil dari ERROR ke belakang | ngambil huruf| ngilangin uname| ngrutin yg udah di cut | ngitung kata ulang yg udah diurutin| ngurutin berdasarkan angka dari gede | setelah error ke belakang|   
 
 		echo "$error_counter"
 
