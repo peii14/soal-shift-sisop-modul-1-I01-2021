@@ -3,6 +3,8 @@
 
 (a) Collects information from application logs contained in the syslog.log file. The information required includes: log type (ERROR / INFO), log messages, and the username on each log line. Since Ryujin finds it difficult to check one line at a time manually, he uses regex to make his job easier. Help Ryujin create the regex.
 
+	cat syslog.log | cut -f4- -d ":"
+
 (b) Then, Ryujin must display all error messages that appear along with the number of occurrences.
 
 	error_counter=`grep -E -o 'ERROR.*' /home/damdum/syslog.log | cut -f2- -d\ | cut -f1 -d"(" | sort | uniq -c | sort -n -r`							
