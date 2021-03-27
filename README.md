@@ -70,13 +70,149 @@ Notes :
 
 (a) Make a script to download 23 images from "https://loremflickr.com/320/240/kitten" and save the logs to the file "Foto.log". Since the downloaded images are random, it is possible that the same image is downloaded more than once, therefore you have to delete the same image (no need to download new images to replace them). Then save the images with the name "Kumpulan_XX" with consecutive numbers without missing any number (example: Koleksi_01, Koleksi_02, ...)
 
+	#!bin/bash
+
+	#iterate 23 pictures
+	for ((iter=1; iter<=23; iter=iter+1))
+	do
+		#start download from link save log into Foto.log
+		wget --output-document "Kumpulan_$iter.jpg" -o "Foto.log" "https://loremflickr.com/320/240/kitten"
+		#take the original name from the link
+		filetemp=$(awk '/Location:/ {print $2}' Foto.log)
+		#take only the name of the original jpg (ifs separator)
+		IFS='/' read -ra ADDR <<< "$filetemp"
+		#set file temp as original jpg
+		filetemp=${ADDR[3]}
+
+		#check if there such a file in the list. when it does delete
+		#no need to compare on the first pict
+		for element in "${list[@]}" 
+		do
+		if [[ $element == "$filetemp" ]]&&[[ $iter > 1  ]]
+		then
+			echo "Delete duplicate"
+			rm -rf "Kumpulan_$iter.jpg"
+			break
+		fi
+		done
+		#appending list
+		list+=($filetemp)
+
+	done
+	
 (b) Because Kuuhaku is too lazy to run the script manually, he also asks you to run the script once a day at 8 o'clock in the evening for some specific dates every month, namely starting the 1st every seven days (1,8, ...), as well as from the 2nd once every four days (2,6, ...). To tidy it up, the downloaded images and logs are moved to a folder named the download date with the format "DD-MM-YYYY" (example: "13-03-2023").
+
+	#!bin/bash
+
+	#directory naming
+	#take date from log file by awk
+	date=$(tail -1 Foto.log | awk '{print $1}' Foto.log )
+	
+	#take year start from 1 char add by 5 char from 1
+	yr=${date:1:5}
+	
+	#take month start from 6 char add by 3 from 6
+        mo=${date:6:3}
+	
+	#take day from 10 char add by 2 from 10
+        dy=${date:10:2}
+
+        #printf "%s%s%s\n" $dy $mo $yr
+	#set directory name
+	director="$dy$mo$yr"
+	
+	printf "%s\n" $director
+	
+	#initiate status of the folder
+	status=false
+	#if folder didnt exit create one and set status as true
+	if [[ ! -d "$director" ]]
+        then
+                mkdir -p "$director"
+		status=true
+		fi
+	#loop for total number of image
+	for ((iter=1;iter<=23;iter=iter+1))
+	do	
+		#if the directory exist and status is strue move to the folder
+		if [  "$status" = "true" ]&&[ -d "$director" ]
+		then
+			mv "Kumpulan_$iter.jpg" "$director/"
+			#echo $status
+		#when its false it means that the folder is already exist before
+		else
+			echo "SKIP PROCESS. ALREADY EXIST"
+		fi
+	done 
+	
+Crontab to run soal3b.sh
+
+	0 20 1/7 * *  /bin/bash -c /soal3b.sh
+	0 20 2/7 * *  /bin/bash -c /soal3b.sh
 
 (c) To prevent Kuuhaku getting bored with pictures of kittens, he also asked you to download rabbit images from "https://loremflickr.com/320/240/bunny". Kuuhaku asks you to download pictures of cats and rabbits alternately (the first one is free. example: 30th cat > 31st rabbit > 1st cat > ...). To distinguish between folders containing cat pictures and rabbit pictures, the folder names are prefixed with "Kucing_" or "Kelinci_" (example: "Kucing_13-03-2023").
 
+	#!bin/bash
+	#set todays date and take the day from the year count 
+	today=$(date '+%d-%m-%y')
+	day=$(date +"%--j")
+
+	echo $today
+	#if ther is no kucing folder for this day and the day is even
+	if [ ! -d "kucing_$day" ]&&[ $(($day%2)) -eq 0 ]
+	then 	
+		#create the folder download kitten and move it to the directory that are made
+		mkdir -p "kucing_$today"
+		wget --output-document "$day.jpg" "https://loremflickr.com/320/240/kitten"
+		mv "$day.jpg" "kucing_$today/"
+	#when kelinci folder for this day is not reated and day is odd
+	elif [ ! -d "kelinci_$day" ]&&[ $(($day%2)) -ne 0 ]
+	then
+		#create the folder download bunny and move it to kelinci this day folder
+		mkdir -p "kelinci_$today"
+		wget --output-document "$day.jpg" "https://loremflickr.com/320/240/bunny"
+		mv "$day.jpg" "kelinci_$today/"
+	fi
+
+
+
 (d) To secure his Photo collection from Steven, Kuuhaku asked you to create a script that will move the entire folder to zip which is named "Koleksi.zip" and lock the zip with a password in the form of the current date with the format "MMDDYYYY" (example: "03032003").
 
+	#!bin/bash
+
+	#take date from lsat logdate
+	logdate=$(tail -1 Foto.log | awk '{print $1}' Foto.log )
+	yr=${date:1:5}
+	mo=${date:6:3}
+	dy=${date:10:2}
+	#printf "%s%s%s\n" $dy $mo $yr
+	logfolder="$dy$mo$yr"
+
+	#take all folder name kucing_* and kelinci_*
+	folderkucing=$(kucing_*)
+	folderkelinci=$(kelinci_*)
+
+	#set password into today date
+	password=$(date '+%m%d%Y')
+
+	echo $password
+	if [ ! -e ./Kumpulan.zip ]
+	then
+		echo "zip file"
+		# zip every folder with kumpulan name and exclude sh log and tab file
+		zip -r -P $password  Kumpulan.zip ./$logfolder ./$folderkucing ./$folderkelinci -x *.sh* *.log* *.tab*
+	elif [ -e ./Kumpulan.zip ]
+	then
+		echo "unzip and delete"
+		unzip -P $password Kumpulan.zip 
+		rm -rf "Kumpulan.zip"
+	fi
+
+
 (e) Because kuuhaku only met Steven during college, which is every day except Saturday and Sunday, from 7 am to 6 pm, he asks you to zip the collection during college, apart from the time mentioned, he wants the collection unzipped. and no other zip files exist.
+
+	0 7 1,2,3,4,5 * *  /bin/bash -c /soal3d.sh
+	0 18 1,2,3,4,5 * * /bin/bash -c /soal3d.sh
 
 Note:
 
