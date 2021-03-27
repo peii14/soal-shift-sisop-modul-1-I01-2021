@@ -1,5 +1,9 @@
 #!/bin/bash
-error_counter=`grep -E -o 'ERROR.*' /home/damdum/syslog.log | cut -f2- -d\ | cut -f1 -d"(" | sort | uniq -c | sort -n -r`
+
+cat syslog.log | cut -f4- -d ":"
+
+
+error_counter=`grep -E -o 'ERROR.*' ./syslog.log | cut -f2- -d\ | cut -f1 -d"(" | sort | uniq -c | sort -n -r`
         #ngambil dari ERROR ke belakang | ngambil huruf| ngilangin uname| ngrutin yg udah di cut | ngitung kata ulang yg udah diurutin| ngurutin berdasarkan angka dari gede
         #                               | setelah error ke belakang|   
 
