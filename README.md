@@ -5,10 +5,26 @@
 
 (b) Then, Ryujin must display all error messages that appear along with the number of occurrences.
 
+	error_counter=`grep -E -o 'ERROR.*' /home/damdum/syslog.log | cut -f2- -d\ | cut -f1 -d"(" | sort | uniq -c | sort -n -r`							
+	#ngambil dari ERROR ke belakang | ngambil huruf setelah error ke belakang| ngilangin uname| ngrutin yg udah di cut | ngitung kata ulang yg udah diurutin| ngurutin berdasarkan angka dari gede |    
+
+		echo "$error_counter"
+
 (c) Ryujin must also be able to display the number of occurrences of the ERROR and INFO logs for each user.
 After all the necessary information has been prepared, now is the time for Ryujin to write all the information into a report in the csv file format.
 
 (d) All information obtained in point b is written into the error_message.csv file with the Error, Count header, which is then followed by a list of error messages and the number of occurrences is ordered based on the number of occurrence of error messages from the most.
+
+		echo "$error_counter" | while read error_check
+			do
+				#output jumlah error per tipe error
+				count=`echo $error_check | cut -f1 -d ' '`
+				#echo "$count"
+				#output tipe error
+		 	        error_type=`echo $error_check | cut -d ' ' -f2-`
+				echo "$error_type,$count" 
+			      #masukin header error_count di line pertama make sed
+			done | sed '1i Error_Count' > error_message.csv
 
 (e) All information obtained in point c is written into the user_statistic.csv file with the header Username, INFO, ERROR sorted by username in ascending order.
 
