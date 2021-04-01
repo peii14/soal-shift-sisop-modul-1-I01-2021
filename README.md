@@ -254,8 +254,7 @@ Notes :
 	
 Crontab to run soal3b.sh
 
-	0 20 1/7 * *  /bin/bash -c /soal3b.sh
-	0 20 2/7 * *  /bin/bash -c /soal3b.sh
+	0 20 1/7,2/4 * *  /bin/bash -c /soal3b.sh
 
 (c) To prevent Kuuhaku getting bored with pictures of kittens, he also asked you to download rabbit images from "https://loremflickr.com/320/240/bunny". Kuuhaku asks you to download pictures of cats and rabbits alternately (the first one is free. example: 30th cat > 31st rabbit > 1st cat > ...). To distinguish between folders containing cat pictures and rabbit pictures, the folder names are prefixed with "Kucing_" or "Kelinci_" (example: "Kucing_13-03-2023").
 
@@ -307,7 +306,7 @@ Crontab to run soal3b.sh
 	then
 		echo "zip file"
 		# zip every folder with kumpulan name and exclude sh log and tab file
-		zip -r -P $password  Kumpulan.zip ./$logfolder ./$folderkucing ./$folderkelinci -x *.sh* *.log* *.tab*
+		zip -rm -P $password  Kumpulan.zip ./$logfolder ./$folderkucing ./$folderkelinci -x *.sh* *.log* *.tab*
 	elif [ -e ./Kumpulan.zip ]
 	then
 		echo "unzip and delete"
@@ -318,8 +317,7 @@ Crontab to run soal3b.sh
 
 (e) Because kuuhaku only met Steven during college, which is every day except Saturday and Sunday, from 7 am to 6 pm, he asks you to zip the collection during college, apart from the time mentioned, he wants the collection unzipped. and no other zip files exist.
 
-	0 7 1,2,3,4,5 * *  /bin/bash -c /soal3d.sh
-	0 18 1,2,3,4,5 * * /bin/bash -c /soal3d.sh
+	0 7,18 * * 1-5  /bin/bash -c /soal3d.sh
 
 Note:
 
