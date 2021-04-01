@@ -20,7 +20,8 @@ if [ ! -e ./Kumpulan.zip ]
 then
 	echo "zip file"
 	# zip every folder with kumpulan name and exclude sh log and tab file
-	zip -r -P $password  Kumpulan.zip ./$logfolder ./$folderkucing ./$folderkelinci -x *.sh* *.log* *.tab*
+	zip -rm -P $password  Kumpulan.zip ./$logfolder ./$folderkucing ./$folderkelinci -x *.sh* *.log* *.tab*
+
 elif [ -e ./Kumpulan.zip ]
 then
 	echo "unzip and delete"

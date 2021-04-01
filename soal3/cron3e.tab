@@ -1,3 +1,1 @@
-0 7 1,2,3,4,5 * *  /bin/bash -c /soal3d.sh
-0 18 1,2,3,4,5 * * /bin/bash -c /soal3d.sh
-
+0 7,18 * * 1-5  /bin/bash -c /soal3d.sh
