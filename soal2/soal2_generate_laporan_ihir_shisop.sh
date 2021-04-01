@@ -2,18 +2,18 @@
 
 #A
 awk -F"\t" '
-BEGIN{maxPP=0}
-	{
+{if(NR>1){
 	#find the biggest profit percentage (PP)
 	#checking all profit percentage, and comparing it to find the biggest
-	if((($21/(($18-$21)+0.00001))*100)>maxPP){
+	maxPP=0;
+	if(($21/($18-$21))*100>maxPP){
 		#every time we get the current biggest, also take the id, so we can use it to print
-		maxPP=(($21/(($18-$21)+0.00001))*100);maxID=$1
+		maxPP=($21/($18-$21))*100;maxID=$1
 	}
-}
+}}
 END{
 	#print the biggest profit percentage and the id
-	printf("The last transaction with the largest %d with a percentage of %.2f%%.\n\n",maxID,maxPP)
+	printf("The last transaction with the largest %d with a percentage of %.2f%.\n\n",maxID,maxPP)
 }
 ' /home/ascarya/Downloads/Laporan-TokoShiSop.tsv > /home/ascarya/sisop/soal-shift-sisop-modul-1-I01-2021/soal2/hasil.txt
 
