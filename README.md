@@ -63,22 +63,27 @@ Every year, TokoShiSop holds a meeting that discusses how sales results and futu
 
 to generate laporan ihir
 ```shell
-	#!/bin/bash
+	
+#!/bin/bash
 
 #A
 awk -F"\t" '
-BEGIN{maxPP=0}
-	{
+#declare the comparison to find the max, use 0 because we need to find the max
+BEGIN{{maxPP=0}}
+#we need to avoid the first row because the first row its just a header
+{if(NR>1){
 	#find the biggest profit percentage (PP)
 	#checking all profit percentage, and comparing it to find the biggest
-	if((($21/(($18-$21)+0.00001))*100)>maxPP){
+	if($21/($18-$21)*100>=maxPP){
 		#every time we get the current biggest, also take the id, so we can use it to print
-		maxPP=(($21/(($18-$21)+0.00001))*100);maxID=$1
+		maxPP=$21/($18-$21)*100;
+		maxID=$1;
 	}
+}	
 }
 END{
 	#print the biggest profit percentage and the id
-	printf("The last transaction with the largest %d with a percentage of %.2f%%.\n\n",maxID,maxPP)
+	printf("The last transaction with the largest %d with a percentage of %.d%%.\n\n",maxID,maxPP)
 }
 ' /home/ascarya/Downloads/Laporan-TokoShiSop.tsv > /home/ascarya/sisop/soal-shift-sisop-modul-1-I01-2021/soal2/hasil.txt
 
@@ -155,7 +160,7 @@ printf("The region wich has the least total profit is %s with total profit %d\n"
 ```
 Thus these are the result of the report
 
-	The last transaction with the largest 9040 with a percentage of 100.00%.
+	The last transaction with the largest 9952 with a percentage of 100.00%.
 
 	The list of customer name in Albuqerque in 2017 includes:
 	Benjamin Farhat
@@ -166,6 +171,12 @@ Thus these are the result of the report
 	The type of customer segment with the least sales is Home Office with 1783 transaction.
 
 	The region wich has the least total profit is Central with total profit 39706
+Screenshot :
+
+[![Screenshot-from-2021-04-04-20-24-32.png](https://i.postimg.cc/1tGTYc86/Screenshot-from-2021-04-04-20-24-32.png)](https://postimg.cc/dk04hCmt)
+
+Problem :
+- 2a, theres an eror divided by zero, because the loop read the first row (header). Solution, avoid the first row by if(NR>1)
 
 Notes :
 
