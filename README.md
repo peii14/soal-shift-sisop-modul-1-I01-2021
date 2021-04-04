@@ -336,4 +336,6 @@ Note:
 
 -Write all the cron used in file cron3[b/e].tab respectively
 
+From number 3 we got problem of running the crontab, and also in 3a about the re-updating file log, yet it doesnt change the final state that the case wanted, because the algorithm already stores all of the original file name to compare to the latest download for taking action either delete the latest photo or continue to the next download sequence.
+
 
